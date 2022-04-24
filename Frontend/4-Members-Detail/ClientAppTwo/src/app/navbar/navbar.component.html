@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">FriendFace</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/members']" routerLinkActive="active" >Kullanıcılar</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  [routerLink]="['/friends']" routerLinkActive="active">Arkadaşlar</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  [routerLink]="['/messages']" routerLinkActive="active">Mesajlar</a>
+      </li>
+    </ul>
+<ul *ngIf="loggedIn()" class="navbar-nav">
+  <li class="navbar-nav">
+    <a [routerLink]="['/members/edit']"   class="nav-link ">{{authService.decodedToken.unique_name}}</a>
+  <li class="navbar-nav">
+    <a  class="nav-link " (click)="logout()" >Logout</a>
+  </li>
+</ul>
+
+
+    <form *ngIf="!loggedIn()" #form="ngForm" (ngSubmit)="login()" class="form-inline mt-2 mt-md-0">
+      <input #userName="ngModel" [(ngModel)]="loginDto.username" class="form-control mr-sm-2" type="text" name="userName" placeholder="İsim" >
+      <input #password="ngModel" [(ngModel)]="loginDto.password" class="form-control mr-sm-2" type="text" name="password" placeholder="İsim" >
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Giriş Yap</button>
+    </form>
+  </div>
+</nav>

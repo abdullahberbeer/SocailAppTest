@@ -1,0 +1,63 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div  class="img-container">
+          <img
+            src="{{ user.profileImageUrl || '../../../../../assets/users.png'}}"
+            class="card-img-top img-thumbnail"
+            alt="{{ user.name }}"
+          />
+        </div>
+        <!-- <div *ngIf="!user?.profileImageUrl" class="img-container">
+         <div class="alert alert-danger">
+           Resim Yok
+         </div>
+        </div> -->
+        <div class="card-body">
+
+
+          <strong>Location</strong>
+          <p>{{user.country}},{{user?.city}}</p>
+          <strong>Age</strong>
+          <p>{{user.age}}</p>
+          <strong>Created Date</strong>
+          <p>{{ user?.created | date:'short' }}</p>
+          <strong>LastActive</strong>
+          <p>{{ user.lastActive  }}</p>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="float-left">
+            <h3>{{user.name}}' Profile</h3>
+          </div>
+         <div class="btn-group float-right" role="group">
+            <!-- <button  type="button" class="btn btn-danger" (click)="followUser(user.id)">
+             {{followTexT}}
+            </button>
+            <button type="button" class="btn btn-success" (click)="openSendMessageModal()">
+              Message
+            </button> -->
+         </div>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">About Me</h5>
+            <p>{{user.introduction}}</p>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+          <h5 class="card-title">Hobbies</h5>
+          <p>{{user.hobbies}}</p>
+    </div>
+  </div>
+  <!-- <photo-gallery [images]="user.images"></photo-gallery> -->
+  </div>
+</div>
